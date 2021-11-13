@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: #f6f6f8;
+  height: 100vh;
+}
+
+.header, .footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.main{
+  display: grid; /* 2 rows */
+  grid-template-rows: auto 1fr;
+}
+
+.question{
+  display: grid; /* 3 rows */
+  grid-template-columns:auto auto auto;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  font-size: 1.5rem;
+  background: #fafafa;
+}
+
+.from, .to{
+  display: flex; /* 2 cols */
+  flex-direction: column;
+  padding: 4px 2px;
+  width: 300px;
+  height: 50px;
+  position: relative;
+}
+
+.question input{
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #cfcfdf;
+  position: absolute;
+  width: 100%;
+}
+
+.datalist{
+  display: block;
+  background-color: #fff;
+  border-top: 0px solid transparent;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  max-height: 600px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: all 0.2s ease-out;
+}
+
+.datalist.hidden{
+  display: none;
+}
+
+.datalist .options{
+  display: flex;
+  flex-direction: column;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+.datalist .options:hover{
+  background-color: #e6e6ed;
+}
+.options .value{
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  padding: 2px;
+  font-stretch: extra-expanded;
+}
+.options .text{
+  font-size: 14px;
+  padding: 2px;
+  color: #555;
+}
+
+/* solution starts here */
+
+.solution{
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  grid-template-rows: auto auto auto auto;
+  justify-content: center;
+  align-content: center;
+  padding: 24px;
+  background: #fafafa;
+  font-size: 1.5rem;
+}
+
+.arrow-right:after{
+  content: '\2192';
+  font-size: 5rem;
+  color: #777;
+
+}
+
+.solution .element, .solution .arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+
+.solution .arrow{
+  flex-direction: column;
+  position: relative;
+}
+
+.arrow .arrow-right{
+  position: relative;
+  top: 10px;
+}
