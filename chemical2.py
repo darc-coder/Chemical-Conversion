@@ -28,15 +28,17 @@ reactions = {
     }
 }
 
+
 class Node:
     def __init__(self, reactionObj, next1, next2=None):
         self.reaction = reactionObj
         self.next1 = next1
         self.nex2 = next2
-        
+
     def __repr__(self):
         if (self != None):
-            return str([self.reaction.from_elem, self.reaction.to_elem, self.next1])
+            return str([self.reaction.from_elem, self.reaction.to_elem]) + '-->' + str(self.next1) + '\n'
+
 
 class reaction:
     found = False
@@ -52,13 +54,13 @@ class reaction:
         reaction.found = False
         for i in reactions.values():
             if to_elem in i['from']:
-                
+
                 temp_step = reaction(to_elem, i['to'], i['reagent'])
                 temp_Node = Node(temp_step, None)
                 reaction.lastReaction.next1 = temp_Node
                 reaction.chain.append(temp_Node)
                 reaction.lastReaction = temp_Node
-                
+
                 print(temp_step.from_elem, temp_step.to_elem, temp_step.reagent)
                 temp_step.findNext(from_elem, i['to'], to_find)
             if to_elem is i['from'] and to_find is i['to']:
